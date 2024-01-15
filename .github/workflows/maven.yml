@@ -23,7 +23,7 @@ jobs:
 
     - name: Get JAR file name
       id: jar-name
-      run: echo "JAR_NAME=$(ls KenshinsHideAndSeek*.jar)" >> $GITHUB_ENV
+      run: echo "JAR_NAME=$(ls ./KenshinsHideAndSeek*.jar)" >> $GITHUB_ENV
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
