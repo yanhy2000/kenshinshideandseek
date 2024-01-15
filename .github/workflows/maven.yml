@@ -21,9 +21,13 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
 
+    - name: Get JAR file name
+      id: jar-name
+      run: echo "JAR_NAME=$(ls target/KenshinsHideAndSeek*.jar)" >> $GITHUB_ENV
+
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
-        name: packaged-jar
-        path: target/*.jar # 请确保这个路径匹配你项目中JAR文件的路径
+        name: ${{ env.JAR_NAME }}
+        path: target/${{ env.JAR_NAME }}
 
